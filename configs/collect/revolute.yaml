@@ -1,0 +1,17 @@
+# Scripted demonstrations of the revolute object (paper, Appendix H, "Simulation demonstration data").
+object: revolute
+num_demos: 400            # successful demonstrations stored
+num_envs: 16              # environments collected in parallel
+train_fraction: 0.9       # demo_0..359 -> mask/train, demo_360..399 -> mask/valid
+seed: 0                   # seed of the expert timing draws and of the batch resets
+
+# Settings of con_dec_imp_sim.expert.make_expert("revolute", ...).
+expert:
+  waypoint_period: 0.1      # policy period [s]
+  max_linear_speed: 0.5     # waypoint speed limit [m/s]
+  max_angular_speed: 3.0    # waypoint angular speed limit [rad/s]
+  approach_distance: 0.08   # approach stand-off in front of the handle [m]
+  grasp_wait: 0.3           # gripper closing time before the articulation [s]
+  duration: 4.0             # articulation time T of the synchronous profile [s]
+  open_target: 3.14159      # nominal hinge rotation [rad]
+  open_ratio: 0.95          # commanded fraction of open_target

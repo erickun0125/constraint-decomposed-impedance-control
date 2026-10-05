@@ -1,0 +1,9 @@
+This repository includes third-party material:
+
+con_dec_imp_sim/assets/data/flying_gripper.usda
+    Contains the visual and collision meshes and the link inertial parameters of
+    the Franka Emika Panda hand and fingers from the `franka_description` package
+    (version 0.7.1), Copyright Franka Emika GmbH, licensed under the
+    Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+    The meshes are embedded unchanged; the kinematic structure (six virtual joints
+    from the world to the hand) and the hand inertia were modified.

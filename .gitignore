@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+checkpoints/*
+!checkpoints/README.md
+outputs/
+runs/
+datasets/
+*.hdf5

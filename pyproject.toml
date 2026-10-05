@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "con-dec-imp"
+version = "1.0.0"
+description = "Constraint-decomposed impedance control from a generative policy for articulated object manipulation"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "torch>=2.0",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+policy = [
+    "robomimic @ git+https://github.com/ARISE-Initiative/robomimic.git@0ca7ce74cf8f20be32029657ef9320db033d93e9",
+    "diffusers==0.11.1",
+    "huggingface-hub>=0.10,<0.26",  # diffusers 0.11.1 imports cached_download, removed in 0.26
+    "h5py",
+]
+examples = ["matplotlib", "notebook"]
+test = ["pytest", "con-dec-imp[policy]"]
+
+[tool.setuptools.packages.find]
+include = ["con_dec_imp*", "con_dec_imp_sim*"]
+
+[tool.setuptools.package-data]
+con_dec_imp_sim = ["assets/data/*.usda"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
